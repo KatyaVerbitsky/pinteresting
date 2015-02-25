@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pins
+
   devise_for :users
   root 'pages#home' #creates variable root_path
   get 'about' => 'pages#about' #creates variable about_path
