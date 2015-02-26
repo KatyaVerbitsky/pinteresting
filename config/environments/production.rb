@@ -80,5 +80,15 @@ Rails.application.configure do
   #Required for heroku
   #Note to set this to the actual host
   config.action_mailer.default_url_options = { :host => 'katya-pinteresting.herokuapp.com' }
+
+  #Sets Paperclip to upload images to Amason S3
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
   
 end
